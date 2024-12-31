@@ -9,3 +9,6 @@ dist-ssr
 explorations
 node_modules
 .eslintcache
+.output
+.vinxi
+*.*.swp

@@ -21,7 +21,7 @@
     "@tanstack/react-query": "^5.59.20",
     "@tanstack/react-router": "^1.82.1",
     "@tanstack/react-router-with-query": "^1.82.1",
-    "@tanstack/start": "^1.82.1",
+    "@tanstack/start": "^1.92.0",
     "codemirror": "^6.0.1",
     "convex": "^1.17.0",
     "convex-helpers": "^0.1.67",
