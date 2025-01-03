@@ -79,7 +79,7 @@ function EditView({ postId }: { postId: string }) {
         <MarkdownEditor
           initialValue={post?.draft ?? post?.content ?? ""}
           onChange={debouncedMutation}
-          className="min-h-[calc(100vh-100px)] border rounded-md"
+          className="max-h-screen overflow-y-auto border rounded-md"
         />
         <div className="max-w-none p-4 border rounded-md overflow-y-auto">
           {renderedPost?.draft && (
@@ -103,7 +103,7 @@ function EditView({ postId }: { postId: string }) {
               </div>
             </div>
           )}
-          {renderedPost && <PostView post={renderedPost} />}
+          {renderedPost && <PostView isEditing={true} post={renderedPost} />}
         </div>
       </div>
 

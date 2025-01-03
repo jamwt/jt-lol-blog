@@ -22,7 +22,7 @@ function RouteComponent() {
 
   return (
     <div>
-      <PostView post={post} />
+      <PostView post={post} isEditing={false} />
       <MaybeEditButton slug={slug} />
     </div>
   );

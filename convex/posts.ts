@@ -36,6 +36,7 @@ export const getBySlug = query({
 
     // Actual default values
     const md = markdownit({
+      html: true,
       highlight: function (str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
@@ -46,9 +47,13 @@ export const getBySlug = query({
         return ""; // use external default escaping
       },
     });
-    const html = md.render(args.draft ? (post.draft ?? post.content) : post.content);
+    const html = md.render(
+      args.draft ? (post.draft ?? post.content) : post.content
+    );
     // Draft is true if the draft is different from the content and a draft is requested
-    const isDraft = Boolean(args.draft && post.draft && post.draft !== post.content);
+    const isDraft = Boolean(
+      args.draft && post.draft && post.draft !== post.content
+    );
 
     return {
       title: post.title,

@@ -18,7 +18,13 @@ const Layout: React.FC<LayoutProps> = ({ children, posts }) => {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Header />
-      <div className="max-w-4xl mx-auto py-6 px-4">
+      <div
+        className={
+          isEditing
+            ? "max-w-7xl mx-auto py-6 px-4"
+            : "max-w-4xl mx-auto py-6 px-4"
+        }
+      >
         <div className="flex flex-col md:flex-row gap-8">
           {!isEditing && (
             <aside className="md:w-1/4">
