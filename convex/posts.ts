@@ -27,6 +27,7 @@ export const listSummaries = query({
 export const getBySlug = query({
   args: { slug: v.string(), draft: v.optional(v.boolean()) },
   handler: async (ctx, args): Promise<BlogPost | null> => {
+    // Get the post record from the database by slug.
     const post = await ctx.db
       .query("posts")
       .withIndex("by_slug", (q) => q.eq("slug", args.slug))
@@ -34,7 +35,8 @@ export const getBySlug = query({
 
     if (!post) return null;
 
-    // Actual default values
+    // Create a markdown renderer with syntax highlighting and embedded 
+    // HTML enabled.
     const md = markdownit({
       html: true,
       highlight: function (str, lang) {
@@ -47,12 +49,16 @@ export const getBySlug = query({
         return ""; // use external default escaping
       },
     });
-    const html = md.render(
-      args.draft ? (post.draft ?? post.content) : post.content
-    );
-    // Draft is true if the draft is different from the content and a draft is requested
+
+    // Draft is true if a draft was requested and the
+    // draft exists and is different from the content
     const isDraft = Boolean(
       args.draft && post.draft && post.draft !== post.content
+    );
+
+    // Render the appropriate content.
+    const html = md.render(
+      isDraft ? (post.draft ?? post.content) : post.content
     );
 
     return {

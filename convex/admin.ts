@@ -7,6 +7,7 @@ import {
   customQuery,
   customMutation,
 } from "convex-helpers/server/customFunctions";
+import { zeroOutPath } from "./snide";
 
 // Admin query.
 const query = customQuery(baseQuery, {
@@ -90,6 +91,7 @@ export const publishDraft = mutation({
       content: post.draft,
       draft: undefined,
     });
+    await zeroOutPath(ctx, `/posts/${post.slug}`);
   },
 });
 

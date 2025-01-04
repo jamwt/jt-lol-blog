@@ -13,4 +13,11 @@ export default defineSchema({
   })
     .index("by_slug", ["slug"])
     .index("by_published_at", ["published"]),
+  snideComments: defineTable({
+    path: v.string(),
+    content: v.optional(v.string()),
+    createdAt: v.number(),
+  })
+    .index("by_path", ["path"])
+    .index("by_created_at", ["createdAt"]),
 });
