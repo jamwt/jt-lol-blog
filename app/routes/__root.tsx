@@ -24,7 +24,13 @@ export const Route = createRootRouteWithContext<{
         title: "jt.lol",
       },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      {
+        rel: "stylesheet",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/tokyo-night-dark.min.css",
+      },
+    ],
     scripts: [
       {
         src: "https://plausible.io/js/script.js",

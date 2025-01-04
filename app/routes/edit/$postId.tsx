@@ -7,7 +7,6 @@ import { api } from "~/convex/_generated/api";
 import { useCallback, useEffect, useState } from "react";
 import debounce from "lodash/debounce";
 import PostView from "~/app/components/PostView";
-import "highlight.js/styles/tokyo-night-dark.min.css";
 import DiffView from "~/app/components/DiffView";
 import { AdminSecretProvider, useAdminSecret } from "~/app/lib/adminUtils";
 
