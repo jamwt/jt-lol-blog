@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Navigation from "./Navigation";
 import { BlogPostSummary } from "../lib/types";
-import { useRouter } from "@tanstack/react-router";
+import { useLocation, useRouter } from "@tanstack/react-router";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,8 +11,8 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, posts }) => {
-  const router = useRouter();
-  const pathname = router.state.location.pathname;
+  const location = useLocation();
+  const pathname = location.pathname;
   const isEditing = pathname.includes("/edit/");
 
   return (
@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children, posts }) => {
       >
         <div className="flex flex-col md:flex-row gap-8">
           {!isEditing && (
-            <aside className="md:w-1/4">
+            <aside className="md:min-w-1/4">
               <Navigation posts={posts} />
             </aside>
           )}
