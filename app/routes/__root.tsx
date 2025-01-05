@@ -44,9 +44,11 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
   return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <RootDocument>
+        <Outlet />
+      </RootDocument>
+    </React.Suspense>
   );
 }
 
