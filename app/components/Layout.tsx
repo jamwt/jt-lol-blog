@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children, posts }) => {
       >
         <div className="flex flex-col md:flex-row gap-8">
           {!isEditing && (
-            <aside className="md:min-w-1/4">
+            <aside className="md:w-1/4">
               <Navigation posts={posts} />
             </aside>
           )}
