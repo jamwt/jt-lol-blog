@@ -1,12 +1,12 @@
 import { convexQuery } from "@convex-dev/react-query";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { useLocation, useRouter } from "@tanstack/react-router";
 import { api } from "~/convex/_generated/api";
 
 const Footer = () => {
   const location = useLocation();
   const path = location.pathname;
-  const { data: comment } = useSuspenseQuery(
+  const { data: comment } = useQuery(
     convexQuery(api.snide.getSnideComment, { path })
   );
   return (
