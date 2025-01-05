@@ -96,7 +96,8 @@ async function generateSnideComment(path: string): Promise<string> {
   Specifically, the human is a software engineer and a startup founder.
   You are given a piece of text which is HTML from a single page on the website.
   Please respond with a snide comment about this particular page.
-  Your snide comment should be three sentences or less.
+  You can zoom in on one specific thing about the page.
+  Your snide comment should be around 50 words or less.
 
   HTML:
   ${text}

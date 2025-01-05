@@ -12,7 +12,13 @@ const Footer = () => {
   return (
     <footer className="text-xs italic bg-white shadow-sm mt-8">
       {comment && (
-        <div className="p-4 max-w-2xl mx-auto">✨ says: "{comment}"</div>
+        <div className="p-4 max-w-2xl mx-auto">
+          ✨ Snide{" "}
+          <a href="https://claude.ai" className="underline">
+            Claude
+          </a>{" "}
+          says: "{comment}" ✨
+        </div>
       )}
     </footer>
   );
