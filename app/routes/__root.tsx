@@ -30,6 +30,11 @@ export const Route = createRootRouteWithContext<{
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/tokyo-night-dark.min.css",
       },
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/beard.png",
+      },
     ],
     scripts: [
       {
