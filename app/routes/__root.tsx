@@ -44,28 +44,44 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
-      <RootDocument>
-        <Outlet />
-      </RootDocument>
-    </React.Suspense>
+    <RootDocument>
+      <Outlet />
+    </RootDocument>
   );
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const { data: posts } = useSuspenseQuery(convexQuery(api.posts.listSummaries, {}));
-
-  const wrappedContent = <Layout posts={posts}>{children}</Layout>;
   return (
     <html>
       <head>
         <Meta />
       </head>
       <body>
-        {wrappedContent}
-        <ScrollRestoration />
-        <Scripts />
+        <React.Suspense
+          fallback={
+            <div className="flex items-center justify-center min-h-screen">
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+            </div>
+          }
+        >
+          <Body>{children}</Body>
+        </React.Suspense>
       </body>
     </html>
+  );
+}
+
+function Body({ children }: { children: React.ReactNode }) {
+  const { data: posts } = useSuspenseQuery(
+    convexQuery(api.posts.listSummaries, {})
+  );
+
+  const wrappedContent = <Layout posts={posts}>{children}</Layout>;
+  return (
+    <>
+      {wrappedContent}
+      <ScrollRestoration />
+      <Scripts />
+    </>
   );
 }

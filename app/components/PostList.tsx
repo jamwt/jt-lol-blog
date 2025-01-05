@@ -17,7 +17,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
         >
           <div className="p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              <Link to={PostRoute.to} params={{ postId: post.slug }} className="hover:underline">
+              <Link to={PostRoute.to} preload="intent" params={{ postId: post.slug }} className="hover:underline">
                 {post.title}
               </Link>
             </h3>

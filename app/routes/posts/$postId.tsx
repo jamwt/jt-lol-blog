@@ -8,6 +8,11 @@ import { Route as EditRoute } from "~/app/routes/edit/$postId";
 
 export const Route = createFileRoute("/posts/$postId")({
   component: RouteComponent,
+    loader: async (opts) => {
+    await opts.context.queryClient.ensureQueryData(
+      convexQuery(api.posts.getBySlug, { slug: opts.params.postId }),
+    );
+  },
 });
 
 function RouteComponent() {

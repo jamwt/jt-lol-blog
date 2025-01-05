@@ -71,6 +71,7 @@ const Navigation: React.FC<NavigationProps> = ({ posts }) => {
             <li key={post.slug}>
               <Link
                 to={PostRoute.to}
+                preload="intent"
                 params={{ postId: post.slug }}
                 className="text-blue-600 hover:underline"
               >
