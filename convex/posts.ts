@@ -39,6 +39,7 @@ export const getBySlug = query({
     // HTML enabled.
     const md = markdownit({
       html: true,
+      typographer: true,
       highlight: function (str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
