@@ -10,14 +10,14 @@ const Footer = () => {
     convexQuery(api.snide.getSnideComment, { path })
   );
   return (
-    <footer className="text-xs italic bg-white shadow-sm mt-8">
+    <footer className="bg-white border-t border-gray-200 mt-12 py-8 transition-opacity duration-500">
       {comment && (
-        <div className="p-4 max-w-2xl mx-auto">
-          ✨ Snide{" "}
-          <a href="https://claude.ai" className="underline">
+        <div className="px-4 max-w-4xl mx-auto text-center italic text-sm text-gray-600">
+          <span className="text-gray-400">✨ Snide </span>
+          <a href="https://claude.ai" className="hover:text-blue-600 transition-colors">
             Claude
-          </a>{" "}
-          says: "{comment}" ✨
+          </a>
+          <span className="text-gray-400"> says:</span> "{comment}" ✨
         </div>
       )}
     </footer>
