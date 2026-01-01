@@ -110,7 +110,7 @@ async function generateSnideComment(path: string): Promise<string> {
   const message = await client.messages.create({
     max_tokens: 8192,
     messages: [{ role: "user", content: prompt }],
-    model: "claude-3-5-sonnet-latest",
+    model: "claude-opus-4-5-20251101",
   });
 
   return (message.content[0] as Anthropic.TextBlock).text;
